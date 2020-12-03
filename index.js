@@ -8,6 +8,7 @@ const path = require('path')
 
 console.log('web 36 rocks')
 console.log(__dirname)
+
 console.log(process.env.USERNAME)
 console.log(process.env.PORT)
 console.log(process.env.LADY)
@@ -18,7 +19,7 @@ console.log(process.env.LIKE)
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.use(express.static(path.join__dirname, 'client/build'))
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 // api, routers
 app.use('/api/*', (_, res) => {
@@ -27,7 +28,7 @@ app.use('/api/*', (_, res) => {
 
 app.use('*', (_, res) => {
     // send back index.html
-    res.sendFile(path.join__dirname, 'client/build, index.html')
+    res.sendFile(path.join__dirname, 'client/build', 'index.html')
 })
 
 app.listen(port, () => {
